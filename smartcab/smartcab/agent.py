@@ -2,7 +2,6 @@ import random
 from environment import Agent, Environment
 from planner import RoutePlanner
 from simulator import Simulator
-import pandas as pd
 import numpy as np
 
 class LearningAgent(Agent):
@@ -21,8 +20,8 @@ class LearningAgent(Agent):
         # initial Q values
         self.initial_q = 30
 
-        # Dictionary of states to be modeled
-        self.states = {'no left turn' : 0, 'no right turn' : 1, 'stop' : 2, 'right turn' : 3, None : 4, 'forward' : 5, 'left' : 6, 'right' : 7}
+        # Initialize state
+        self.states = None
 
         # Dictionary of possible actions to index states from Q matrix
         self.actions = {None : 0, 'forward' : 1, 'left' : 2, 'right' : 3}
@@ -63,7 +62,7 @@ class LearningAgent(Agent):
 
         #print self.Q
         #self.total_reward += reward
-        print self.total_reward
+        #print self.total_reward
 
         #print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, action, reward)  # [debug]
 
